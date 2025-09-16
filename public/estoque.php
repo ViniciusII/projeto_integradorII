@@ -21,6 +21,8 @@ $stmt = $produto->listar();
     <meta charset="UTF-8">
     <title>Controle de Estoque</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
 </head>
 <body>

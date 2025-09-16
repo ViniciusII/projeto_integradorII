@@ -1,5 +1,6 @@
 /* Corpo da página */
 body {
+    font-family: 'Montserrat';
     background-color: #f8f9fa;
     padding-top: 70px; /* Espaço suficiente para a navbar fixa */
 }

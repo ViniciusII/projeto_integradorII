@@ -152,6 +152,7 @@ CSS page login -----------------------------------------------------------------
 */
 /* Só aplica quando estiver dentro do login */
 .login-page {
+    font-family: 'Montserrat';
     height: 100vh;
     background: linear-gradient(135deg, #000000, #333333), 
     url('../images/bg-login.jpg') no-repeat center center;

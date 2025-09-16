@@ -20,6 +20,7 @@ $stmt = $produto->listar();
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <span class="navbar-brand">Controle de Estoque</span>
+        <a href="logout.php" class="btn btn-outline-light btn-sm">Sair</a>
     </div>
 </nav>
 
