@@ -1,21 +1,45 @@
+/* Corpo da página */
 body {
     background-color: #f8f9fa;
-    padding-top: 60px;
+    padding-top: 70px; /* Espaço suficiente para a navbar fixa */
 }
 
+/* Container centralizado */
 .container {
     max-width: 800px;
     margin: 0 auto;
 }
 
+/* Cartões */
 .card {
     margin-bottom: 20px;
 }
 
+/* Cabeçalho do cartão */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebrar linha se necessário em telas pequenas */
+}
+
+/* Evita que o botão quebre linha */
+.card-header .btn {
+    white-space: nowrap;
+    margin-top: 5px; /* Pequena margem se quebrar linha em mobile */
+}
+
+/* Título do card */
+.card-header h5 {
+    margin-bottom: 0;
+}
+
+/* Tabela */
 .table td, .table th {
     vertical-align: middle;
 }
 
+/* Botões dentro da tabela */
 a.btn {
     margin-right: 5px;
 }

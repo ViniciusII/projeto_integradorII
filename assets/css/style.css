@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat';
+}
+header {
+    height: 100px;
+    background-color: black;
+    color: #fff;
+}
+.header {
+    max-width: 1140px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 100px;
+}
+.logoimg,
+.logoimg img{
+    width: 100px;
+    height: 100px;
+    background-color: #B28756;
+}
+.menu{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.menu ul,
+.menu li{
+    list-style: none;
+}
+.menu ul{
+    display: flex;
+}
+.menu li a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;  
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    align-items: center;
+    border-bottom: 5px solid #0000;
+}
+.menu li a:hover,
+.menu .active a {
+    border-bottom: 5px solid #B28756;
+}
+
+.banner {
+    height: calc(100vh - 100px);
+    background-color: #333;
+    background-image: url("../images/bg.jpeg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+.banner .sliders {
+    width: 1000vw;
+    height: 100%;
+}
+.banner .slide{
+    width: 100vw;
+    height: 100%;
+    display:inline-block;
+    background-color: rgba(0, 0, 0 , 0.8);
+}
+.banner .slidearea{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    flex-direction: column;
+}
+.banner h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+}
+.banner h1 span{
+    color: #B28756;
+    align-items: center;
+    text-align: center;
+}
+.banner h2{
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.banner a{
+    display: block;
+    background-color: #B28756;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font: weight 600; ;
+    text-decoration: none;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.default{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.default .section-title,
+.default .section-desc{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.default .section-title{
+    font-size: 20px;
+
+}
+.default .section-desc{
+    font-size: 12px;
+    color: #5c5c5c;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.default .section-body{
+    max-width: 1140px;
+    margin: 30px auto;       /* margem superior/inferior */
+    padding: 20px 30px;      /* padding interno */
+    line-height: 1.8;        /* espaçamento entre linhas */
+    font-size: 16px;         /* tamanho confortável */
+    box-sizing: border-box;  /* inclui padding na largura */
+    color: #333;
+}
+.default.light{
+    background-color: #F7F7F7;
+}
+.default.light .section-title{
+    color: #000;
+}
+
+
+
+/*
+CSS page login ----------------------------------------------------------------------------------------
+*/
+/* Só aplica quando estiver dentro do login */
+.login-page {
+    height: 100vh;
+    background: linear-gradient(135deg, #000000, #333333), 
+    url('../images/bg-login.jpg') no-repeat center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page .login-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 350px;
+}
+.login-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input {
+    padding: 12px 15px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+.esqueceu-senha, .criar-conta {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.esqueceu-senha a, .criar-conta a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.esqueceu-senha a:hover, .criar-conta a:hover{
+    text-decoration: underline;
+}
