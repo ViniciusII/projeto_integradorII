@@ -1,7 +1,3 @@
-/* atualiza o banco de dados
-login: admin s: 123456
-*/
-
 <?php
 session_start();
 require_once "../config/database.php";
