@@ -24,13 +24,14 @@ $stmt = $produto->listar();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <link rel="stylesheet" href="style.css">
-    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 </head>
-<body>
+<body class="estoque-page">
 <div class="sidebar-dashboard">
     <h2>Menu</h2>
     <a href="dashboard.php"><i class="fas fa-home"></i> Início</a>
-    <a href="#"><i class="fas fa-shopping-cart"></i> Venda</a>
+    <a href="clientes.php"><i class="fas fa-users"></i> Clientes</a>
+    <a href="vendas.php"><i class="fas fa-shopping-cart"></i> Venda</a>
     <a href="estoque.php"><i class="fas fa-boxes"></i> Estoque</a>
     <div class="sidebar-logout">
     <a href="logout.php" class="btn-logout-dashboard"><i class="fas fa-sign-out-alt"></i> Sair</a>

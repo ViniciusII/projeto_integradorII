@@ -1,16 +1,25 @@
+/* ------------------------------------------------------------------------------------
+   RESET E FONTES
+------------------------------------------------------------------------------------ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: 'Montserrat';
+
+body {
+    font-family: 'Montserrat', sans-serif;
 }
+
+/* ------------------------------------------------------------------------------------
+   MENU PRINCIPAL (HEADER / BANNER)
+------------------------------------------------------------------------------------ */
 header {
     height: 100px;
     background-color: black;
     color: #fff;
 }
+
 .header {
     max-width: 1140px;
     height: 100px;
@@ -18,44 +27,47 @@ header {
     display: flex;
     align-items: center;
 }
-.logo {
-    width: 100px;
-}
-.logoimg,
-.logoimg img{
+
+.logo, .logoimg, .logoimg img {
     width: 100px;
     height: 100px;
     background-color: #B28756;
 }
-.menu{
+
+.menu {
     flex: 1;
     display: flex;
     justify-content: flex-end;
 }
-.menu ul,
-.menu li{
+
+.menu ul, .menu li {
     list-style: none;
 }
-.menu ul{
+
+.menu ul {
     display: flex;
 }
+
 .menu li a {
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
-    text-decoration: none;  
+    text-decoration: none;
     display: flex;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
     height: 100px;
     align-items: center;
-    border-bottom: 5px solid #0000;
+    border-bottom: 5px solid transparent;
 }
+
 .menu li a:hover,
 .menu .active a {
     border-bottom: 5px solid #B28756;
 }
 
+/* ------------------------------------------------------------------------------------
+   BANNER
+------------------------------------------------------------------------------------ */
 .banner {
     height: calc(100vh - 100px);
     background-color: #333;
@@ -64,17 +76,20 @@ header {
     background-position: center;
     overflow: hidden;
 }
+
 .banner .sliders {
     width: 1000vw;
     height: 100%;
 }
-.banner .slide{
+
+.banner .slide {
     width: 100vw;
     height: 100%;
-    display:inline-block;
-    background-color: rgba(0, 0, 0 , 0.8);
+    display: inline-block;
+    background-color: rgba(0,0,0,0.8);
 }
-.banner .slidearea{
+
+.banner .slidearea {
     display: flex;
     height: 100%;
     justify-content: center;
@@ -82,81 +97,83 @@ header {
     color: #fff;
     flex-direction: column;
 }
-.banner h1{
+
+.banner h1 {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 50px;
     text-align: center;
 }
-.banner h1 span{
+
+.banner h1 span {
     color: #B28756;
-    align-items: center;
-    text-align: center;
 }
-.banner h2{
+
+.banner h2 {
     text-transform: uppercase;
     margin-top: 20px;
 }
-.banner a{
+
+.banner a {
     display: block;
     background-color: #B28756;
     color: #fff;
     text-transform: uppercase;
-    font-size: 12px;
-    font: weight 600; ;
+    font-weight: 600;
     text-decoration: none;
     padding: 10px 30px;
     margin-top: 20px;
     border-radius: 20px;
 }
-.default{
-    padding-top: 50px;
-    padding-bottom: 50px;
+
+/* ------------------------------------------------------------------------------------
+   SEÇÕES PADRÃO
+------------------------------------------------------------------------------------ */
+.default {
+    padding: 50px 0;
 }
+
 .default .section-title,
-.default .section-desc{
+.default .section-desc {
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
 }
-.default .section-title{
-    font-size: 20px;
 
+.default .section-title {
+    font-size: 20px;
 }
-.default .section-desc{
+
+.default .section-desc {
     font-size: 12px;
     color: #5c5c5c;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin: 10px 0 15px 0;
 }
-.default .section-body{
+
+.default .section-body {
     max-width: 1140px;
-    margin: 30px auto;       /* margem superior/inferior */
-    padding: 20px 30px;      /* padding interno */
-    line-height: 1.8;        /* espaçamento entre linhas */
-    font-size: 16px;         /* tamanho confortável */
-    box-sizing: border-box;  /* inclui padding na largura */
+    margin: 30px auto;
+    padding: 20px 30px;
+    line-height: 1.8;
+    font-size: 16px;
     color: #333;
 }
-.default.light{
+
+.default.light {
     background-color: #F7F7F7;
 }
-.default.light .section-title{
+
+.default.light .section-title {
     color: #000;
 }
 
-
-
-/*
-CSS page login ----------------------------------------------------------------------------------------
-*/
-/* Só aplica quando estiver dentro do login */
+/* ------------------------------------------------------------------------------------
+   LOGIN
+------------------------------------------------------------------------------------ */
 .login-page {
-    font-family: 'Montserrat';
     height: 100vh;
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* camada escura */
-        url('../images/bg-login.jpg') no-repeat center center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('../images/bg-login.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -164,15 +181,7 @@ CSS page login -----------------------------------------------------------------
 }
 
 .login-page .login-container {
-    background: rgba(255, 255, 255, 0.8); /* 0.8 = 80% opaco */
-    padding: 40px 30px;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    width: 350px;
-}
-
-.login-container {
-    background: rgba(255, 255, 255, 0.8); /* 0.8 = 80% opaco */
+    background: rgba(255,255,255,0.8);
     padding: 40px 30px;
     border-radius: 8px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -199,36 +208,35 @@ CSS page login -----------------------------------------------------------------
 
 .input-group input {
     padding: 12px 15px;
-    border: 1.5px solid rgba(255, 255, 255, 0.4); /* borda mais suave */
+    border: 1.5px solid rgba(255,255,255,0.4);
     border-radius: 5px;
     font-size: 16px;
-    background: rgba(255, 255, 255, 0.3); /* fundo transparente */
-    backdrop-filter: blur(5px); /* efeito vidro */
-    -webkit-backdrop-filter: blur(5px);
-    color: #333; /* cor do texto */
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(5px);
+    color: #333;
     transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .input-group input:focus {
     border-color: #007bff;
     outline: none;
-    background: rgba(255, 255, 255, 0.5); /* foca mais visível */
+    background: rgba(255,255,255,0.5);
 }
 
-.btn-login {
+.btn-login, .btn-registro {
     width: 100%;
     padding: 12px;
     background-color: #007bff;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: #fff;
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.btn-login:hover {
+.btn-login:hover, .btn-registro:hover {
     background-color: #0056b3;
 }
 
@@ -243,94 +251,42 @@ CSS page login -----------------------------------------------------------------
     font-size: 14px;
 }
 
-.esqueceu-senha a:hover, .criar-conta a:hover{
+.esqueceu-senha a:hover, .criar-conta a:hover {
     text-decoration: underline;
 }
 
-/* Só aplica quando estiver dentro do registro----------------------------------------------------*/
-/* Container da página */
+/* ------------------------------------------------------------------------------------
+   REGISTRO
+------------------------------------------------------------------------------------ */
 .registro-page {
-    font-family: 'Montserrat';
     height: 100vh;
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('../images/bg-login.jpg') no-repeat center center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('../images/bg-login.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Container do formulário */
 .registro-page .registro-container {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255,255,255,0.8);
     padding: 40px 30px;
     border-radius: 8px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     width: 350px;
 }
 
-/* Título do formulário */
 .registro-form h2 {
     text-align: center;
     margin-bottom: 25px;
     color: #333;
 }
 
-/* Input groups */
-.input-group {
-    margin-bottom: 20px;
+/* ------------------------------------------------------------------------------------
+MENU LATERAL
+------------------------------------------------------------------------------------ */
+.dashboard-page, .vendas-page, .estoque-page, .clientes-page, .adcprod-page, .attestoq-page{
     display: flex;
-    flex-direction: column;
-}
-
-.input-group label {
-    margin-bottom: 6px;
-    font-weight: 600;
-    color: #555;
-}
-
-.input-group input {
-    padding: 12px 15px;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
-    border-radius: 5px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    color: #333;
-    transition: border-color 0.3s ease, background 0.3s ease;
-}
-
-.input-group input:focus {
-    border-color: #007bff;
-    outline: none;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-/* Botão */
-.btn-registro {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-registro:hover {
-    background-color: #0056b3;
-}
-
-/* Só aplica quando estiver dentro do dashboard ----------------------------------------------------*/
-.dashboard-page {
-    display: flex;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
     height: 100vh;
 }
 
@@ -341,7 +297,10 @@ CSS page login -----------------------------------------------------------------
     display: flex;
     flex-direction: column;
     padding: 20px;
-    height: 100vh; /* ocupa a tela inteira */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .sidebar-dashboard h2 {
@@ -365,9 +324,12 @@ CSS page login -----------------------------------------------------------------
     background: #34495e;
 }
 
-/* Empurra o botão logout para baixo */
+/* Logout sempre no final da sidebar */
 .sidebar-logout {
     margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .btn-logout-dashboard {
@@ -388,9 +350,12 @@ CSS page login -----------------------------------------------------------------
     background-color: #34495e;
 }
 
+/* Conteúdo principal à direita da sidebar */
 .main-dashboard {
+    margin-left: 200px;
     flex: 1;
-    padding: 20px;
     background: #ecf0f1;
+    padding: 20px;
     overflow-y: auto;
+    height: 100vh;
 }
