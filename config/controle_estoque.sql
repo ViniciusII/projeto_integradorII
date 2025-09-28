@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Set-2025 às 04:15
+-- Tempo de geração: 28-Set-2025 às 03:38
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `operators` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
@@ -39,8 +40,8 @@ CREATE TABLE `operators` (
 -- Extraindo dados da tabela `operators`
 --
 
-INSERT INTO `operators` (`id`, `username`, `password`, `created`, `modified`) VALUES
-(1, 'admin', '123456', '2025-09-12 20:42:05', '2025-09-12 20:42:05');
+INSERT INTO `operators` (`id`, `username`, `email`, `password`, `created`, `modified`) VALUES
+(2, 'admin', NULL, '$2y$10$qfVbrTJ5p.a2PIc6/i/x3OrdaGDW2K.xAUv5tk9HMDWGGDEOjub0O', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -57,6 +58,13 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome`, `descricao`, `quantidade`, `preco`) VALUES
+(4, 'test1', 'afdsfd', 3, 150.00);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -65,7 +73,8 @@ CREATE TABLE `produtos` (
 --
 ALTER TABLE `operators`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Índices para tabela `produtos`
@@ -81,13 +90,13 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT de tabela `operators`
 --
 ALTER TABLE `operators`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
