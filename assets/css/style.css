@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------------------------
-   RESET E FONTES
+RESET E FONTES
 ------------------------------------------------------------------------------------ */
 * {
     margin: 0;
@@ -12,7 +12,7 @@ body {
 }
 
 /* ------------------------------------------------------------------------------------
-   MENU PRINCIPAL (HEADER / BANNER)
+MENU PRINCIPAL (HEADER / BANNER)
 ------------------------------------------------------------------------------------ */
 header {
     height: 100px;
@@ -66,7 +66,7 @@ header {
 }
 
 /* ------------------------------------------------------------------------------------
-   BANNER
+BANNER
 ------------------------------------------------------------------------------------ */
 .banner {
     height: calc(100vh - 100px);
@@ -127,7 +127,7 @@ header {
 }
 
 /* ------------------------------------------------------------------------------------
-   SEÇÕES PADRÃO
+SEÇÕES PADRÃO
 ------------------------------------------------------------------------------------ */
 .default {
     padding: 50px 0;
@@ -168,7 +168,7 @@ header {
 }
 
 /* ------------------------------------------------------------------------------------
-   LOGIN
+LOGIN
 ------------------------------------------------------------------------------------ */
 .login-page {
     height: 100vh;
@@ -256,7 +256,7 @@ header {
 }
 
 /* ------------------------------------------------------------------------------------
-   REGISTRO
+REGISTRO
 ------------------------------------------------------------------------------------ */
 .registro-page {
     height: 100vh;
@@ -358,4 +358,137 @@ MENU LATERAL
     padding: 20px;
     overflow-y: auto;
     height: 100vh;
+}
+
+/* ----------------------------------CSS Clientes----------------------------------------- /*
+/* --- Estilos Gerais para o Conteúdo Principal --- */
+
+.main-dashboard h1 {
+    color: #333;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* --- Estilos para as Seções (Pesquisa e Cadastro) --- */
+.search-section, .register-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px; /* Espaçamento entre a pesquisa e o cadastro */
+}
+
+.search-section h2, .register-section h2 {
+    color: #007bff; /* Cor primária para os títulos */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+/* --- Estilos da Barra de Pesquisa --- */
+.search-form {
+    display: flex; /* Alinha o input e o botão lado a lado */
+    gap: 10px;
+}
+
+.search-form input[type="text"] {
+    flex-grow: 1; /* O input ocupa o máximo de espaço */
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-search {
+    background-color: #28a745; /* Cor verde para pesquisar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.btn-search:hover {
+    background-color: #1e7e34;
+}
+
+
+/* --- Estilos do Formulário de Cadastro --- */
+.register-form {
+    display: grid;
+    /* Cria um layout em grade com 2 colunas */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+}
+
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Garante que padding e border fiquem dentro da largura */
+}
+
+/* Faz o botão de submit ocupar a linha toda na grade */
+.btn-submit {
+    grid-column: 1 / -1; 
+    background-color: #007bff; /* Cor azul para cadastrar */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Para dispositivos menores, muda para uma única coluna */
+@media (max-width: 768px) {
+    .register-form {
+        grid-template-columns: 1fr;
+    }
+}
+/* ALERTA! cadastro cliente -------------------------------------------------*/
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.alert p {
+    margin: 0;
+}
+
+/* Estilo para mensagem de Sucesso */
+.alert-success {
+    color: #155724; /* Texto Verde Escuro */
+    background-color: #d4edda; /* Fundo Verde Claro */
+    border-color: #c3e6cb; /* Borda Verde */
+}
+
+/* Estilo para mensagem de Erro */
+.alert-error {
+    color: #721c24; /* Texto Vermelho Escuro */
+    background-color: #f8d7da; /* Fundo Vermelho Claro */
+    border-color: #f5c6cb; /* Borda Vermelha */
 }

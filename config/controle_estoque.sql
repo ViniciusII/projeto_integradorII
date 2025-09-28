@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Set-2025 às 03:38
+-- Tempo de geração: 29-Set-2025 às 01:41
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `controle_estoque`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
+  `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nome`, `cpf`, `email`, `telefone`, `data_cadastro`) VALUES
+(1, 'FLAVIANE DA COSTA DIAS', '44578976540', 'flaviacosta9@gmail.com', '19982345679', '2025-09-28 23:39:19');
 
 -- --------------------------------------------------------
 
@@ -41,7 +63,8 @@ CREATE TABLE `operators` (
 --
 
 INSERT INTO `operators` (`id`, `username`, `email`, `password`, `created`, `modified`) VALUES
-(2, 'admin', NULL, '$2y$10$qfVbrTJ5p.a2PIc6/i/x3OrdaGDW2K.xAUv5tk9HMDWGGDEOjub0O', NULL, NULL);
+(2, 'admin', NULL, '$2y$10$qfVbrTJ5p.a2PIc6/i/x3OrdaGDW2K.xAUv5tk9HMDWGGDEOjub0O', NULL, NULL),
+(4, 'Flaviane', 'flaviacosta9@gmail.com', '$2y$10$NXE6.gh8LB/Awb9VMo0e.OYAe9jjGK0MrfScYZ3/fbKqumbi/LPim', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,11 +85,19 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `descricao`, `quantidade`, `preco`) VALUES
-(4, 'test1', 'afdsfd', 3, 150.00);
+(4, 'test1', 'afdsfd', 5, 150.00);
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `cpf` (`cpf`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Índices para tabela `operators`
@@ -87,10 +118,16 @@ ALTER TABLE `produtos`
 --
 
 --
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `operators`
 --
 ALTER TABLE `operators`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
