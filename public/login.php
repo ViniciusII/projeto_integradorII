@@ -33,14 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_regenerate_id(true);
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                header("Location: estoque.php");
+                header("Location: dashboard.php");
                 exit;
             } else {
                 $error = "Usuário ou senha inválidos.";
             }
-        } else {
-            // senha antiga em texto plano (legacy)
-            // RECOMENDADO: comparar sensível a maiúsc/minúsc (mais seguro)
+            } else {
             if (strcasecmp(trim($password), trim($stored)) === 0) {
                 // migra para hash no primeiro login bem-sucedido
                 $newHash = password_hash($password, PASSWORD_DEFAULT);
@@ -50,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_regenerate_id(true);
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                header("Location: estoque.php");
+                header("Location: dashboard.php");
                 exit;
             } else {
                 $error = "Usuário ou senha inválidos.";

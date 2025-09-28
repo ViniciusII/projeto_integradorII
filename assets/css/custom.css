@@ -1,46 +1,76 @@
-/* Corpo da página */
-body {
-    font-family: 'Montserrat';
-    background-color: #f8f9fa;
-    padding-top: 70px; /* Espaço suficiente para a navbar fixa */
-}
-
-/* Container centralizado */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Cartões */
-.card {
-    margin-bottom: 20px;
-}
-
-/* Cabeçalho do cartão */
-.card-header {
+.dashboard-page {
     display: flex;
-    justify-content: space-between;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Sidebar lateral */
+.sidebar-dashboard {
+    width: 200px;
+    background: #2c3e50;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100vh; /* altura total da tela */
+    position: fixed; /* fixa a barra lateral */
+    top: 0;
+    left: 0;
+}
+
+/* Conteúdo principal */
+.main-dashboard {
+    margin-left: 200px; /* espaço para a sidebar */
+    flex: 1;
+    background: #ecf0f1;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+/* Links e logout (mantendo seu estilo) */
+.sidebar-dashboard h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar-dashboard a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
     align-items: center;
-    flex-wrap: wrap; /* Permite quebrar linha se necessário em telas pequenas */
+    gap: 10px;
+    transition: background 0.3s;
 }
 
-/* Evita que o botão quebre linha */
-.card-header .btn {
-    white-space: nowrap;
-    margin-top: 5px; /* Pequena margem se quebrar linha em mobile */
+.sidebar-dashboard a:hover {
+    background: #34495e;
 }
 
-/* Título do card */
-.card-header h5 {
-    margin-bottom: 0;
+.sidebar-logout {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* Tabela */
-.table td, .table th {
-    vertical-align: middle;
+.btn-logout-dashboard {
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
 }
 
-/* Botões dentro da tabela */
-a.btn {
-    margin-right: 5px;
+.btn-logout-dashboard:hover {
+    background-color: #34495e;
 }

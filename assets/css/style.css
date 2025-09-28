@@ -325,3 +325,72 @@ CSS page login -----------------------------------------------------------------
 .btn-registro:hover {
     background-color: #0056b3;
 }
+
+/* Só aplica quando estiver dentro do dashboard ----------------------------------------------------*/
+.dashboard-page {
+    display: flex;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+
+.sidebar-dashboard {
+    width: 200px;
+    background: #2c3e50;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100vh; /* ocupa a tela inteira */
+}
+
+.sidebar-dashboard h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar-dashboard a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s;
+}
+
+.sidebar-dashboard a:hover {
+    background: #34495e;
+}
+
+/* Empurra o botão logout para baixo */
+.sidebar-logout {
+    margin-top: auto;
+}
+
+.btn-logout-dashboard {
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-logout-dashboard:hover {
+    background-color: #34495e;
+}
+
+.main-dashboard {
+    flex: 1;
+    padding: 20px;
+    background: #ecf0f1;
+    overflow-y: auto;
+}
