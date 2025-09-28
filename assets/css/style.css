@@ -154,22 +154,25 @@ CSS page login -----------------------------------------------------------------
 .login-page {
     font-family: 'Montserrat';
     height: 100vh;
-    background: linear-gradient(135deg, #000000, #333333), 
-    url('../images/bg-login.jpg') no-repeat center center;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* camada escura */
+        url('../images/bg-login.jpg') no-repeat center center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .login-page .login-container {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8); /* 0.8 = 80% opaco */
     padding: 40px 30px;
     border-radius: 8px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     width: 350px;
 }
+
 .login-container {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8); /* 0.8 = 80% opaco */
     padding: 40px 30px;
     border-radius: 8px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -196,15 +199,20 @@ CSS page login -----------------------------------------------------------------
 
 .input-group input {
     padding: 12px 15px;
-    border: 1.5px solid #ccc;
+    border: 1.5px solid rgba(255, 255, 255, 0.4); /* borda mais suave */
     border-radius: 5px;
     font-size: 16px;
-    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.3); /* fundo transparente */
+    backdrop-filter: blur(5px); /* efeito vidro */
+    -webkit-backdrop-filter: blur(5px);
+    color: #333; /* cor do texto */
+    transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .input-group input:focus {
     border-color: #007bff;
     outline: none;
+    background: rgba(255, 255, 255, 0.5); /* foca mais visível */
 }
 
 .btn-login {
@@ -237,4 +245,83 @@ CSS page login -----------------------------------------------------------------
 
 .esqueceu-senha a:hover, .criar-conta a:hover{
     text-decoration: underline;
+}
+
+/* Só aplica quando estiver dentro do registro----------------------------------------------------*/
+/* Container da página */
+.registro-page {
+    font-family: 'Montserrat';
+    height: 100vh;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('../images/bg-login.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container do formulário */
+.registro-page .registro-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+/* Título do formulário */
+.registro-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Input groups */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input {
+    padding: 12px 15px;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: #333;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Botão */
+.btn-registro {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-registro:hover {
+    background-color: #0056b3;
 }
