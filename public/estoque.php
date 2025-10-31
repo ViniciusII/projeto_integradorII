@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-// se não estiver logado, manda para login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
@@ -13,17 +11,15 @@ require_once "../src/Produto.php";
 $db = (new Database())->getConnection();
 $produto = new Produto($db);
 
-$stmt = $produto->listar();
+$stmt = $produto->listarPorUsuario($_SESSION['user_id']);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Estoque</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <link rel="stylesheet" href="style.css">
     <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 <body class="estoque-page">
@@ -34,10 +30,10 @@ $stmt = $produto->listar();
     <a href="vendas.php"><i class="fas fa-shopping-cart"></i> Venda</a>
     <a href="estoque.php"><i class="fas fa-boxes"></i> Estoque</a>
     <div class="sidebar-logout">
-    <a href="logout.php" class="btn-logout-dashboard"><i class="fas fa-sign-out-alt"></i> Sair</a>
+        <a href="logout.php" class="btn-logout-dashboard"><i class="fas fa-sign-out-alt"></i> Sair</a>
     </div>
 </div>
-<!-- <span>Olá, <?= htmlspecialchars($_SESSION['username']) ?></span>  para adiconar em proxima att-->
+
 <div class="container" style="margin-top: 80px;">
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
@@ -64,6 +60,8 @@ $stmt = $produto->listar();
                             <td><?= number_format($row['preco'], 2, ',', '.') ?></td>
                             <td>
                                 <a href="update_stock.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-primary">Atualizar Estoque</a>
+                                <a href="delete_product.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-danger"
+                                onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>

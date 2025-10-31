@@ -1,0 +1,55 @@
+
+Este é um projeto integrador para a UNIVESP que visa criar um sistema de controle de estoque para obras fundamental para o bom andamento, garantindo o uso adequado de materiais e a redução de desperdícios. Este projeto tem como objetivo desenvolver um sistema de controle de estoque para obras, que registre entradas e saídas de materiais de forma prática e organizada. A proposta visa otimizar o gerenciamento de recursos, facilitar o acompanhamento de custos e contribuir para maior eficiência na execução das atividades da construção civil.
+
+Estamos projetando para o  sistema  conter as seguintes funcionalidades: 
+
+1. Objetivo do controle de estoque de obras
+
+Garantir que o material certo esteja disponível no momento certo;
+
+Evitar compras duplicadas;
+
+Controlar entradas e saídas de materiais;
+
+Acompanhar o custo real da obra;
+
+Reduzir perdas, furtos e sobras.
+
+
+2. Itens que o sistema deve registrar
+
+Cada item do estoque deve ter:
+
+- Código / ID	Identificação única do material
+- Descrição	Nome do item (ex: Cimento CP II 50kg)
+- Unidade	Ex: saco, metro, kg, unidade
+- Quantidade em estoque	Total atual
+- Local de armazenamento	Ex: depósito central, obra X
+- Data de entrada / saída	Controle de movimentações
+- Responsável	Quem retirou / recebeu
+- Fornecedor	De quem foi comprado
+- Custo unitário	Preço de cada item
+- Custo total	Preço × quantidade
+
+
+3. Fluxo básico do controle
+
+Entrada de material
+
+Registrar notas fiscais e quantidades recebidas.
+
+Armazenamento e identificação
+
+Etiquetar e organizar fisicamente no depósito.
+
+Saída de material
+
+Registrar quem retirou, para qual frente de trabalho e em que data.
+
+Conferência periódica (inventário)
+
+Comparar o estoque físico com o registro do sistema.
+
+Relatórios de consumo e custo
+
+Verificar o quanto já foi gasto e o que precisa ser reposto.
