@@ -1,55 +1,96 @@
 <?php
 class Produto {
     private $conn;
-    private $table_name = "produtos";
 
     public $id;
     public $nome;
     public $descricao;
     public $quantidade;
     public $preco;
+    public $user_id;
 
-    public function __construct($db){
+    public function __construct($db) {
         $this->conn = $db;
     }
 
-    public function listar(){
-        $query = "SELECT * FROM " . $this->table_name . " ORDER BY nome";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
+    // Listar produtos de um usuário
+    public function listarPorUsuario($user_id) {
+        $stmt = $this->conn->prepare("SELECT * FROM produtos WHERE user_id = ? ORDER BY id DESC");
+        $stmt->execute([$user_id]);
         return $stmt;
     }
 
-    public function adicionar(){
-        $query = "INSERT INTO " . $this->table_name . " SET nome=:nome, descricao=:descricao, quantidade=:quantidade, preco=:preco";
-        $stmt = $this->conn->prepare($query);
-
-        $stmt->bindParam(":nome", $this->nome);
-        $stmt->bindParam(":descricao", $this->descricao);
-        $stmt->bindParam(":quantidade", $this->quantidade);
-        $stmt->bindParam(":preco", $this->preco);
-
-        if($stmt->execute()){
-            return true;
-        }
-        return false;
-    }
-
-    public function atualizarEstoque($id, $nova_quantidade){
-        $query = "UPDATE " . $this->table_name . " SET quantidade = :quantidade WHERE id = :id";
-        $stmt = $this->conn->prepare($query);
-
-        $stmt->bindParam(":quantidade", $nova_quantidade);
-        $stmt->bindParam(":id", $id);
-
-        return $stmt->execute();
-    }
-
-    public function pegarProdutoPorId($id){
-        $query = "SELECT * FROM " . $this->table_name . " WHERE id = :id LIMIT 0,1";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(":id", $id);
-        $stmt->execute();
+    // Buscar produto pelo ID
+    public function pegarProdutoPorId($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM produtos WHERE id = ?");
+        $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // Adicionar novo produto (com user_id)
+    public function adicionar($user_id) {
+        if (empty(trim($this->nome))) {
+            throw new Exception("O campo 'Nome' é obrigatório.");
+        }
+        if (empty($this->descricao)) {
+            $this->descricao = "";
+        }
+
+        $stmt = $this->conn->prepare(
+            "INSERT INTO produtos (nome, descricao, quantidade, preco, user_id) VALUES (?, ?, ?, ?, ?)"
+        );
+        return $stmt->execute([
+            $this->nome,
+            $this->descricao,
+            $this->quantidade,
+            $this->preco,
+            $user_id
+        ]);
+    }
+
+    // Atualizar produto completo
+    public function atualizar($id) {
+        if (empty(trim($this->nome))) {
+            throw new Exception("O campo 'Nome' é obrigatório.");
+        }
+        if (empty($this->descricao)) {
+            $this->descricao = "";
+        }
+
+        $stmt = $this->conn->prepare(
+            "UPDATE produtos SET nome = ?, descricao = ?, quantidade = ?, preco = ? WHERE id = ?"
+        );
+        return $stmt->execute([
+            $this->nome,
+            $this->descricao,
+            $this->quantidade,
+            $this->preco,
+            $id
+        ]);
+    }
+
+    // Atualizar somente estoque
+    public function atualizarEstoque($id, $nova_quantidade) {
+        if (!is_numeric($nova_quantidade) || $nova_quantidade < 0) {
+            throw new Exception("Quantidade inválida.");
+        }
+        $stmt = $this->conn->prepare(
+            "UPDATE produtos SET quantidade = ? WHERE id = ?"
+        );
+        return $stmt->execute([$nova_quantidade, $id]);
+    }
+
+    // Excluir produto com verificação de usuário
+    public function excluir($id, $user_id) {
+        $produto = $this->pegarProdutoPorId($id);
+        if (!$produto) {
+            throw new Exception("Produto não encontrado.");
+        }
+        if ($produto['user_id'] != $user_id) {
+            throw new Exception("Você não tem permissão para excluir este produto.");
+        }
+
+        $stmt = $this->conn->prepare("DELETE FROM produtos WHERE id = ?");
+        return $stmt->execute([$id]);
     }
 }
