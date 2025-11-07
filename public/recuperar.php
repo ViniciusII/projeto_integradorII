@@ -19,13 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Informe o email.";
     } else {
         try {
-            // Verifica se o email existe no banco
             $stmt = $db->prepare("SELECT id FROM operators WHERE email = :email");
             $stmt->execute([":email" => $email]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user) {
-                // Aqui seria feito o envio real do email
                 $success = "Um link de recuperação foi enviado para o seu email.";
             } else {
                 $error = "Email não encontrado.";

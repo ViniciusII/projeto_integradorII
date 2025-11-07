@@ -17,13 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user) {
         $stored = $user['password'];
 
-        // Verifica se o valor armazenado parece ser um hash gerado por password_hash
         $info = password_get_info($stored);
 
         if ($info['algo'] !== 0) {
-            // senha já está em hash -> usar password_verify
             if (password_verify($password, $stored)) {
-                // opcional: rehash se o algoritmo mudou/precisa de upgrade
                 if (password_needs_rehash($stored, PASSWORD_DEFAULT)) {
                     $newHash = password_hash($password, PASSWORD_DEFAULT);
                     $upd = $db->prepare("UPDATE operators SET password = :hash WHERE id = :id");
@@ -40,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             } else {
             if (strcasecmp(trim($password), trim($stored)) === 0) {
-                // migra para hash no primeiro login bem-sucedido
                 $newHash = password_hash($password, PASSWORD_DEFAULT);
                 $upd = $db->prepare("UPDATE operators SET password = :hash WHERE id = :id");
                 $upd->execute([':hash' => $newHash, ':id' => $user['id']]);

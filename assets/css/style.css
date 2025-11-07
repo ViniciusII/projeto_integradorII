@@ -324,7 +324,6 @@ MENU LATERAL
     background: #34495e;
 }
 
-/* Logout sempre no final da sidebar */
 .sidebar-logout {
     margin-top: auto;
     display: flex;
@@ -350,7 +349,7 @@ MENU LATERAL
     background-color: #34495e;
 }
 
-/* Conteúdo principal à direita da sidebar */
+
 .main-dashboard {
     margin-left: 200px;
     flex: 1;
@@ -358,10 +357,21 @@ MENU LATERAL
     padding: 20px;
     overflow-y: auto;
     height: 100vh;
+    max-width: calc(100vw - 200px); 
+    overflow-x: hidden; 
 }
 
-/* ----------------------------------CSS Clientes----------------------------------------- /*
-/* --- Estilos Gerais para o Conteúdo Principal --- */
+/* ------------------------------------------------------------------------------------
+AJUSTES ESPECÍFICOS DE LAYOUT (VENDAS E ESTOQUE)
+------------------------------------------------------------------------------------ */
+
+.vendas-page .container, 
+.estoque-page .container {
+    margin-left: 200px !important; 
+    max-width: calc(100vw - 200px); 
+}
+
+/* ----------------------------------CSS Clientes----------------------------------------- */
 
 .main-dashboard h1 {
     color: #333;
@@ -376,11 +386,11 @@ MENU LATERAL
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px; /* Espaçamento entre a pesquisa e o cadastro */
+    margin-bottom: 30px; 
 }
 
 .search-section h2, .register-section h2 {
-    color: #007bff; /* Cor primária para os títulos */
+    color: #007bff; 
     margin-top: 0;
     margin-bottom: 15px;
 }
@@ -388,12 +398,12 @@ MENU LATERAL
 
 /* --- Estilos da Barra de Pesquisa --- */
 .search-form {
-    display: flex; /* Alinha o input e o botão lado a lado */
+    display: flex; 
     gap: 10px;
 }
 
 .search-form input[type="text"] {
-    flex-grow: 1; /* O input ocupa o máximo de espaço */
+    flex-grow: 1; 
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -401,7 +411,7 @@ MENU LATERAL
 }
 
 .btn-search {
-    background-color: #28a745; /* Cor verde para pesquisar */
+    background-color: #28a745; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -419,7 +429,6 @@ MENU LATERAL
 /* --- Estilos do Formulário de Cadastro --- */
 .register-form {
     display: grid;
-    /* Cria um layout em grade com 2 colunas */
     grid-template-columns: 1fr 1fr; 
     gap: 20px;
 }
@@ -438,13 +447,13 @@ MENU LATERAL
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-sizing: border-box; /* Garante que padding e border fiquem dentro da largura */
+    box-sizing: border-box; 
 }
 
 /* Faz o botão de submit ocupar a linha toda na grade */
 .btn-submit {
     grid-column: 1 / -1; 
-    background-color: #007bff; /* Cor azul para cadastrar */
+    background-color: #007bff; 
     color: white;
     border: none;
     padding: 12px 25px;
@@ -481,14 +490,14 @@ MENU LATERAL
 
 /* Estilo para mensagem de Sucesso */
 .alert-success {
-    color: #155724; /* Texto Verde Escuro */
-    background-color: #d4edda; /* Fundo Verde Claro */
-    border-color: #c3e6cb; /* Borda Verde */
+    color: #155724;
+    background-color: #d4edda; 
+    border-color: #c3e6cb; 
 }
 
 /* Estilo para mensagem de Erro */
 .alert-error {
-    color: #721c24; /* Texto Vermelho Escuro */
-    background-color: #f8d7da; /* Fundo Vermelho Claro */
-    border-color: #f5c6cb; /* Borda Vermelha */
+    color: #721c24; 
+    background-color: #f8d7da; 
+    border-color: #f5c6cb; 
 }

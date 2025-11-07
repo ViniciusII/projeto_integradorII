@@ -13,21 +13,18 @@ class Produto {
         $this->conn = $db;
     }
 
-    // Listar produtos de um usuário
     public function listarPorUsuario($user_id) {
         $stmt = $this->conn->prepare("SELECT * FROM produtos WHERE user_id = ? ORDER BY id DESC");
         $stmt->execute([$user_id]);
         return $stmt;
     }
 
-    // Buscar produto pelo ID
     public function pegarProdutoPorId($id) {
         $stmt = $this->conn->prepare("SELECT * FROM produtos WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // Adicionar novo produto (com user_id)
     public function adicionar($user_id) {
         if (empty(trim($this->nome))) {
             throw new Exception("O campo 'Nome' é obrigatório.");
@@ -48,7 +45,6 @@ class Produto {
         ]);
     }
 
-    // Atualizar produto completo
     public function atualizar($id) {
         if (empty(trim($this->nome))) {
             throw new Exception("O campo 'Nome' é obrigatório.");
@@ -69,7 +65,6 @@ class Produto {
         ]);
     }
 
-    // Atualizar somente estoque
     public function atualizarEstoque($id, $nova_quantidade) {
         if (!is_numeric($nova_quantidade) || $nova_quantidade < 0) {
             throw new Exception("Quantidade inválida.");
@@ -80,7 +75,6 @@ class Produto {
         return $stmt->execute([$nova_quantidade, $id]);
     }
 
-    // Excluir produto com verificação de usuário
     public function excluir($id, $user_id) {
         $produto = $this->pegarProdutoPorId($id);
         if (!$produto) {

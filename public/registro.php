@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "As senhas não coincidem.";
     } else {
         try {
-            // Verifica se username ou email já existe (ignora maiúsc/minúsc)
             $stmt = $db->prepare("SELECT username, email FROM operators");
             $stmt->execute();
             $exists = false;
@@ -41,10 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             if (!$exists) {
-                // Cria hash da senha
                 $hash = password_hash($password, PASSWORD_DEFAULT);
 
-                // Insere usuário no banco
                 $ins = $db->prepare("INSERT INTO operators (username, password, email) VALUES (:username, :password, :email)");
                 $ins->execute([
                     ':username' => $username,
