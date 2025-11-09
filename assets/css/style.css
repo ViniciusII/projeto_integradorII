@@ -8,7 +8,13 @@ RESET E FONTES
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    /* 
+       A SOLUÇÃO DEFINITIVA:
+       1. Força a fonte Montserrat em todo o site, ganhando do Bootstrap.
+       2. Força um peso de fonte (500 = Medium) para que ela não pareça "rala".
+    */
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500 !important; 
 }
 
 /* ------------------------------------------------------------------------------------

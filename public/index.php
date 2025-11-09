@@ -28,7 +28,7 @@ $stmt = $produto->listar();
         <a href="vendas.php"><i class="fas fa-shopping-cart"></i> Venda</a>
         <a href="estoque.php"><i class="fas fa-boxes"></i> Estoque</a>
         <div class="sidebar-logout">
-        <a href="logout.php" class="btn-logout-dashboard"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            <a href="logout.php" class="btn-logout-dashboard"><i class="fas fa-sign-out-alt"></i> Sair</a>
         </div>
     </div>
 <div class="container">
@@ -65,5 +65,6 @@ $stmt = $produto->listar();
         </div>
     </div>
 </div>
+<script src="../assets/js/dark-mode.js"></script>
 </body>
 </html>

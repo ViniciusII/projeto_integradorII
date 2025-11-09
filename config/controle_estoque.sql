@@ -28,13 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clientes` (
-  `id` int(11) NOT NULL,
+  `id` int(11 ) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `cpf` varchar(14) NOT NULL,
   `email` varchar(100) NOT NULL,
   `telefone` varchar(15) DEFAULT NULL,
   `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp(),
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 para ativo, 0 para inativo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -80,7 +81,8 @@ CREATE TABLE `produtos` (
   `descricao` text DEFAULT NULL,
   `quantidade` int(11) NOT NULL DEFAULT 0,
   `preco` decimal(10,2) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 para ativo, 0 para inativo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -121,6 +123,23 @@ INSERT INTO `vendas` (`id`, `produto_id`, `quantidade`, `valor_total`, `cliente_
 (3, 12, 5, 250.00, 'Consumidor', NULL, '2025-11-01 23:52:22', 2, 'Dinheiro'),
 (4, 12, 2, 100.00, 'Consumidor', NULL, '2025-11-02 00:05:56', 2, 'Cartão Crédito');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `servicos`
+--
+
+CREATE TABLE `servicos` (
+  `id` int(11) NOT NULL,
+  `descricao_servico` text NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
+  `cliente_nome` varchar(100) DEFAULT 'Consumidor',
+  `cliente_id` int(11) DEFAULT NULL,
+  `data_servico` timestamp NOT NULL DEFAULT current_timestamp(),
+  `user_id` int(11) NOT NULL,
+  `forma_pagamento` varchar(50) NOT NULL DEFAULT 'Dinheiro'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tabelas despejadas
 --
@@ -157,6 +176,14 @@ ALTER TABLE `vendas`
   ADD KEY `produto_id` (`produto_id`);
 
 --
+-- Índices para tabela `servicos`
+--
+ALTER TABLE `servicos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cliente_id` (`cliente_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -183,6 +210,12 @@ ALTER TABLE `produtos`
 --
 ALTER TABLE `vendas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `servicos`
+--
+ALTER TABLE `servicos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
